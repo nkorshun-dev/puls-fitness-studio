@@ -3,7 +3,6 @@ export const studio = {
   city: 'Минск',
   address: 'пр-т Победителей, 84, 2 этаж',
   phone: '+375 29 614-27-08',
-  phoneLink: 'tel:+375296142708',
   email: 'hello@puls-fitness.example',
   hours: 'Пн–Пт 7:00–22:00, Сб–Вс 10:00–20:00',
   area: 420,

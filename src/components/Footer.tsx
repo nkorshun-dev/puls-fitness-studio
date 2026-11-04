@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { studio } from '../data/studio'
+import { DemoLink } from './DemoLink'
 import s from './Footer.module.css'
 
 export function Footer() {
@@ -9,7 +10,7 @@ export function Footer() {
         <div>
           <p className={s.brand}>ПУЛЬС</p>
           <p>{studio.city}, {studio.address}</p>
-          <p><a href={studio.phoneLink}>{studio.phone}</a><br />{studio.hours}</p>
+          <p><DemoLink label={`Телефон ${studio.phone}`}>{studio.phone}</DemoLink><br />{studio.hours}</p>
         </div>
         <nav aria-label="Нижнее меню" className={s.links}>
           <Link to="/schedule">Расписание</Link>

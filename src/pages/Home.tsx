@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ClassCard } from '../components/ClassCard'
 import { ClassModal } from '../components/ClassModal'
+import { DemoLink } from '../components/DemoLink'
 import { MembershipCard } from '../components/MembershipCard'
 import { TrialForm } from '../components/TrialForm'
 import { useAccount } from '../context/account-context'
@@ -181,8 +182,8 @@ export default function Home() {
           <div>
             <h2 id="h-ct">Контакты</h2>
             <p>{studio.city}, {studio.address}</p>
-            <p><a href={studio.phoneLink}>{studio.phone}</a></p>
-            <p><a href={`mailto:${studio.email}`}>{studio.email}</a></p>
+            <p><DemoLink label={`Телефон ${studio.phone}`}>{studio.phone}</DemoLink></p>
+            <p><DemoLink label={`Почта ${studio.email}`}>{studio.email}</DemoLink></p>
             <p>{studio.hours}</p>
           </div>
           <div>
