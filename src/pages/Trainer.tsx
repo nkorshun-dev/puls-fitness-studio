@@ -25,7 +25,7 @@ export default function Trainer() {
     <>
       <section className={`section dark ${p.head}`}>
         <div className={`container ${p.split}`}>
-          <img className={p.photo} style={{ aspectRatio: '4 / 5', maxWidth: 420 }} src={t.photo} alt={`Тренер ${t.name}`} width={600} height={750} />
+          <img draggable="false" className={p.photo} style={{ aspectRatio: '4 / 5', maxWidth: 420 }} src={t.photo} alt={`Тренер ${t.name}`} width={600} height={750} />
           <div>
             <p className="eyebrow"><Link to="/trainers">Тренеры</Link></p>
             <h1>{t.name}</h1>

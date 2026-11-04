@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <>
       <section className={`section dark ${s.hero}`}>
-        <img className={s.bg} src={studio.heroPhoto} alt="" width={1600} height={1000} fetchPriority="high" />
+        <img draggable="false" className={s.bg} src={studio.heroPhoto} alt="" width={1600} height={1000} fetchPriority="high" />
         <div className="container">
           <p className="eyebrow">Фитнес-студия в центре Минска</p>
           <h1>Групповые тренировки в Минске — <em>от 7 утра до 22 вечера</em></h1>
@@ -78,7 +78,7 @@ export default function Home() {
           <div className={p.cards}>
             {directions.map((d) => (
               <Link key={d.slug} to={`/directions/${d.slug}`} className={p.dirCard} style={{ '--dir': d.color } as React.CSSProperties}>
-                <img src={d.image} alt="" loading="lazy" width={800} height={600} />
+                <img draggable="false" src={d.image} alt="" loading="lazy" width={800} height={600} />
                 <div className={p.dirBody}><h3>{d.name}</h3><p>{d.short}</p></div>
               </Link>
             ))}
@@ -104,7 +104,7 @@ export default function Home() {
           <div className={p.cards}>
             {trainers.slice(0, 4).map((t) => (
               <Link key={t.slug} to={`/trainers/${t.slug}`} className={p.person}>
-                <img src={t.photo} alt={`Тренер ${t.name}`} loading="lazy" width={600} height={750} />
+                <img draggable="false" src={t.photo} alt={`Тренер ${t.name}`} loading="lazy" width={600} height={750} />
                 <div className={p.personBody}><h3>{t.name}</h3><p>Опыт {t.experience} {t.experience < 5 ? "года" : "лет"}</p></div>
               </Link>
             ))}
@@ -130,13 +130,13 @@ export default function Home() {
             <div className={s.halls}>
               {halls.map((h) => (
                 <div key={h.id} className={s.hall}>
-                  <img src={h.image} alt="" loading="lazy" width={96} height={72} />
+                  <img draggable="false" src={h.image} alt="" loading="lazy" width={96} height={72} />
                   <div><h3>{h.name}</h3><p>{h.area} м², до {h.capacity} человек. {h.description}</p></div>
                 </div>
               ))}
             </div>
           </div>
-          <img className={p.photo} src={studio.photo} alt="Интерьер студии «Пульс»" loading="lazy" width={1200} height={800} />
+          <img draggable="false" className={p.photo} src={studio.photo} alt="Интерьер студии «Пульс»" loading="lazy" width={1200} height={800} />
         </div>
       </section>
 

@@ -17,7 +17,7 @@ export default function Directions() {
         <div className={`container ${p.cards}`}>
           {directions.map((d) => (
             <Link key={d.slug} to={`/directions/${d.slug}`} className={p.dirCard} style={{ '--dir': d.color } as React.CSSProperties}>
-              <img src={d.image} alt="" loading="lazy" width={800} height={600} />
+              <img draggable="false" src={d.image} alt="" loading="lazy" width={800} height={600} />
               <div className={p.dirBody}><h2 style={{ fontSize: '1.1rem', margin: 0 }}>{d.name}</h2><p>{d.short}</p></div>
             </Link>
           ))}

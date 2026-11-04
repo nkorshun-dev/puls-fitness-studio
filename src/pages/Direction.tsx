@@ -38,7 +38,7 @@ export default function Direction() {
               {[1, 2, 3, 4, 5].map((i) => <i key={i} className={i <= d.intensity ? 'on' : ''} style={i <= d.intensity ? { background: d.color } : undefined} />)}
             </div>
           </div>
-          <img className={p.photo} src={d.image} alt={`Занятие: ${d.name}`} width={800} height={600} />
+          <img draggable="false" className={p.photo} src={d.image} alt={`Занятие: ${d.name}`} width={800} height={600} />
         </div>
       </section>
       <section className="section">
@@ -56,7 +56,7 @@ export default function Direction() {
           <div className={p.cards}>
             {tr.map((t) => (
               <Link key={t.slug} to={`/trainers/${t.slug}`} className={p.person}>
-                <img src={t.photo} alt={`Тренер ${t.name}`} loading="lazy" width={600} height={750} />
+                <img draggable="false" src={t.photo} alt={`Тренер ${t.name}`} loading="lazy" width={600} height={750} />
                 <div className={p.personBody}><h3>{t.name}</h3><p>Опыт {t.experience} {t.experience < 5 ? 'года' : 'лет'}</p></div>
               </Link>
             ))}

@@ -18,7 +18,7 @@ export default function Trainers() {
         <div className={`container ${p.cards}`}>
           {trainers.map((t) => (
             <Link key={t.slug} to={`/trainers/${t.slug}`} className={p.person}>
-              <img src={t.photo} alt={`Тренер ${t.name}`} loading="lazy" width={600} height={750} />
+              <img draggable="false" src={t.photo} alt={`Тренер ${t.name}`} loading="lazy" width={600} height={750} />
               <div className={p.personBody}>
                 <h2 style={{ fontSize: '1.1rem', margin: 0 }}>{t.name}</h2>
                 <p>{t.directions.map((d) => directionBySlug(d)?.name).join(', ')}</p>
