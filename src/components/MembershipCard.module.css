@@ -1,0 +1,8 @@
+.card { display: flex; flex-direction: column; gap: 6px; padding: 22px 20px; border-radius: var(--radius); background: var(--card); color: var(--fg); border: 1px solid var(--line); }
+.popular { border: 2px solid var(--accent); }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.top h3 { margin: 0; }
+.price { font-family: var(--font-head); font-weight: 800; font-size: 2rem; margin: 8px 0 0; }
+.sub { color: var(--muted); margin: 0; }
+.list { margin: 8px 0; padding-left: 18px; }
+.note { color: var(--muted); font-size: 0.9rem; flex: 1; }

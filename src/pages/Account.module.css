@@ -1,0 +1,17 @@
+.demo { display: inline-block; margin-bottom: 16px; padding: 6px 14px; border-radius: 999px; background: color-mix(in srgb, var(--amber) 18%, transparent); border: 1px solid var(--amber); color: var(--amber); font-size: 0.85rem; font-weight: 600; }
+.grid { display: grid; gap: 16px; }
+.panel { padding: 22px 20px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); min-width: 0; }
+.panel h2 { font-size: 1.2rem; }
+.big { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bar { height: 12px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 8px 0 16px; }
+.bar i { display: block; height: 100%; background: var(--accent); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+.muted { color: var(--muted); font-size: 0.92rem; margin: 0; }
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.items li { display: grid; gap: 6px; justify-items: start; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.items li:last-child { border: 0; padding-bottom: 0; }
+.warn { color: var(--amber-text); font-size: 0.88rem; font-weight: 600; }
+@media (min-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .wide { grid-column: 1 / -1; }
+}

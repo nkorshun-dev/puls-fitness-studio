@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# project
+.env
+.env.*
+coverage
+.netlify
+
+# Служебные и сборка (только локально)
+node_modules/
+dist/
+.next/
+out/
+.netlify/
+.env
+.env.*
+*.tsbuildinfo
+.claude/
+.impeccable/
+PROJECT.md
+AUDIT.md
+0[0-9]-*.md
+_backup-до-редизайна/

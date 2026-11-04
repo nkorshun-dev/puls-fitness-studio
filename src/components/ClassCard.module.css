@@ -1,0 +1,19 @@
+.card { --dir: var(--accent); display: grid; gap: 2px; width: 100%; text-align: left; padding: 12px 12px 12px 16px; background: var(--card); color: var(--fg); border: 1px solid var(--line); border-left: 6px solid var(--dir); border-radius: 12px; transition: transform 0.15s, border-color 0.15s; }
+.card:hover { transform: translateY(-2px); border-color: var(--fg); border-left-color: var(--dir); }
+.time { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; }
+.name { font-weight: 700; }
+.meta { color: var(--muted); font-size: 0.85rem; }
+.foot { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; font-size: 0.85rem; }
+.spots { color: var(--muted); font-weight: 600; }
+.few { color: var(--amber-text); font-weight: 700; }
+.reason { margin-top: 6px; font-size: 0.82rem; color: var(--muted); }
+.past { opacity: 0.55; }
+.cancelled { opacity: 0.75; }
+.cancelled .time, .cancelled .name { text-decoration: line-through; }
+.booked { border-color: var(--green); }
+.waitlist { border-color: var(--blue); }
+.compact { padding: 8px 8px 8px 10px; border-left-width: 5px; }
+.compact .time { font-size: 0.9rem; }
+.compact .name { font-size: 0.9rem; line-height: 1.25; }
+.compact .meta { font-size: 0.78rem; }
+.compact .foot { font-size: 0.78rem; }

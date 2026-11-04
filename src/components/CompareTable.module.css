@@ -1,0 +1,7 @@
+.wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 0.95rem; }
+.table th, .table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+.table thead th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.table tbody th { font-weight: 700; }
+.table tbody tr:last-child > * { border-bottom: 0; }
+.table tbody tr:hover { background: color-mix(in srgb, var(--fg) 5%, transparent); }

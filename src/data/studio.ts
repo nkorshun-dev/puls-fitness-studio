@@ -1,0 +1,21 @@
+export const studio = {
+  name: 'Пульс',
+  city: 'Минск',
+  address: 'пр-т Победителей, 84, 2 этаж',
+  phone: '+375 29 614-27-08',
+  phoneLink: 'tel:+375296142708',
+  email: 'hello@puls-fitness.example',
+  hours: 'Пн–Пт 7:00–22:00, Сб–Вс 10:00–20:00',
+  area: 420,
+  facts: [
+    { value: '420 м²', label: 'площадь студии' },
+    { value: '3', label: 'зала, включая сайкл-студию' },
+    { value: '7', label: 'тренеров' },
+    { value: '40', label: 'занятий в неделю' },
+  ],
+  amenities: ['Раздевалки с индивидуальными шкафчиками', '4 душевые кабины', 'Бесплатная парковка на 25 мест', 'Фен и кулер с водой', 'Коврики и инвентарь включены'],
+  photo: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&h=800&q=70',
+  heroPhoto: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&h=1000&q=70',
+  trialPrice: 9,
+  singlePrice: 19,
+}

@@ -1,0 +1,13 @@
+.dir { --dir: var(--accent); display: inline-flex; align-items: center; gap: 8px; font-weight: 700; margin: 0 0 6px; padding-right: 48px; }
+.dir::before { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--dir); }
+.title { font-size: clamp(1.2rem, 4vw, 1.6rem); margin-bottom: 16px; padding-right: 40px; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0 0 16px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-weight: 600; }
+.facts a { color: var(--link); }
+.bring { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 0.95rem; }
+.actions { display: grid; gap: 12px; margin-top: 8px; }
+.note { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.plan { display: grid; gap: 10px; }
+.more { color: var(--link); text-align: center; padding: 8px; }
+.row { display: grid; gap: 8px; grid-template-columns: 1fr 1fr; }
