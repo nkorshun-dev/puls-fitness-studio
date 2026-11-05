@@ -1,11 +1,10 @@
 /** Маска белорусского номера: +375 (29) 123-45-67. */
-/** Длина префикса: «375» или «80» (внутренний формат 80XX…; кодов оператора на 80 в Беларуси нет). */
-const prefixLen = (d: string) => (d.startsWith('375') ? 3 : d.startsWith('80') ? 2 : 0)
-
-export const phoneDigits = (input: string) => {
-  const d = input.replace(/\D/g, '')
-  return d.slice(prefixLen(d)).slice(0, 9)
-}
+/**
+ * 9 цифр номера без кода страны. «+375» маски (или его стёртая часть) — не номер; затем снимаем набранный
+ * пользователем 375/80: кодов оператора на 37 и 80 нет, поэтому «+375 (375…» и «+375 (80…» — это префикс.
+ */
+export const phoneDigits = (input: string) =>
+  input.replace(/^\s*\+(375|37|3)?/, '').replace(/\D/g, '').replace(/^375/, '').replace(/^80/, '').slice(0, 9)
 
 export const formatPhone = (input: string) => {
   const d = phoneDigits(input)
@@ -28,10 +27,10 @@ export const isPhoneComplete = (input: string) => phoneDigits(input).length === 
 export function maskChange(el: HTMLInputElement, prev: string): string {
   const raw = el.value
   const caret = el.selectionStart ?? raw.length
-  const lead = prefixLen(raw.replace(/\D/g, ''))
   let d = phoneDigits(raw)
-  let n = Math.max(0, raw.slice(0, caret).replace(/\D/g, '').length - lead)
-  if (raw.length < prev.length && d === phoneDigits(prev) && n > 0) {
+  let n = phoneDigits(raw.slice(0, caret)).length
+  // стёрли один знак маски (Backspace/Delete), а не заменили всё поле вставкой — убираем цифру перед ним
+  if (raw === prev.slice(0, caret) + prev.slice(caret + 1) && d === phoneDigits(prev) && n > 0) {
     d = d.slice(0, n - 1) + d.slice(n)
     n--
   }
@@ -42,6 +41,7 @@ export function maskChange(el: HTMLInputElement, prev: string): string {
     let seen = -3 // цифры префикса «375» не считаем
     for (let i = 0; i < out.length; i++) if (/\d/.test(out[i]) && ++seen === n) { pos = i + 1; break }
   }
-  setTimeout(() => el.setSelectionRange(pos, pos), 0)
+  // в конце поля React сам оставит курсор в конце; отложенный вызов при быстром наборе вернул бы его назад
+  if (pos < out.length) setTimeout(() => el.setSelectionRange(pos, pos), 0)
   return out
 }
