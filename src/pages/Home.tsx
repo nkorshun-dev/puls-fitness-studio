@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ClassCard } from '../components/ClassCard'
 import { ClassModal } from '../components/ClassModal'
@@ -38,12 +38,24 @@ const jsonLd = {
   ],
 }
 
-// фото hero локально (public/img), тот же набор предзагружается в index.html
-const heroBase = `${import.meta.env.BASE_URL}img/hero-`
-const heroSet = (ext: string) => [640, 1024, 1600, 2400].map((w) => `${heroBase}${w}.${ext} ${w}w`).join(', ')
 
 export default function Home() {
   usePageMeta('', 'Студия «Пульс» в Минске: пилатес, йога, TRX, сайкл, зумба. Расписание на 3 недели, запись онлайн, пробное занятие за 9 BYN.')
+  const heroRef = useRef<HTMLElement>(null)
+  useLayoutEffect(() => {
+    const stage = document.getElementById('puls-hero-stage')
+    const hero = heroRef.current
+    if (!stage || !hero) return
+    stage.hidden = false
+    const fit = () => {
+      stage.style.top = hero.offsetTop + 'px'
+      stage.style.height = hero.offsetHeight + 'px'
+    }
+    fit()
+    const observer = new ResizeObserver(fit)
+    observer.observe(hero)
+    return () => { observer.disconnect(); stage.hidden = true }
+  }, [])
   const { now } = useAccount()
   const buy = useBuy()
   const [open, setOpen] = useState<ClassItem | null>(null)
@@ -61,11 +73,7 @@ export default function Home() {
 
   return (
     <>
-      <section className={`section dark ${s.hero}`}>
-        <picture>
-          <source type="image/avif" srcSet={heroSet('avif')} sizes="100vw" />
-          <img draggable="false" className={s.bg} src={`${heroBase}1600.webp`} srcSet={heroSet('webp')} sizes="100vw" alt="" width={1600} height={1000} fetchPriority="high" />
-        </picture>
+      <section ref={heroRef} className={`section dark ${s.hero}`}>
         <div className="container">
           <p className="eyebrow">Фитнес-студия в центре Минска</p>
           <h1>Групповые тренировки в Минске — <em>от 7 утра до 22 вечера</em></h1>

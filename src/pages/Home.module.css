@@ -20,3 +20,9 @@
   .hero { padding-block: 120px 96px; }
   .stats { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(92px, auto); min-height: 92px; }
 }
+
+/* Фоновое фото уже в HTML; секция сохраняет прежний градиент поверх него. */
+.hero:global(.section) { background: transparent; }
+
+/* Offscreen sections keep their layout placeholder until approaching the viewport. */
+.hero ~ section { content-visibility: auto; contain-intrinsic-size: auto 800px; }

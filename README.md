@@ -84,3 +84,7 @@ npm run preview
 Inter/Unbounded подключены из `public/fonts/` (WOFF2, кириллица и латиница) с `font-display: swap`, запасными шрифтами с подогнанными метриками и preload основного Inter. Лицензии SIL OFL 1.1: [Inter](public/fonts/inter-OFL.txt), [Unbounded](public/fonts/unbounded-OFL.txt); источник файлов лицензий — `google/fonts`, каталоги `ofl/inter` и `ofl/unbounded`.
 
 Hero использует локальные AVIF/WebP в `public/img/`, responsive srcset 640–2400 px и preload в HTML; пути сборки учитывают `/puls/`. Блок статистики первого экрана резервирует высоту до загрузки шрифтов.
+
+QA performance: initial-page CSS is embedded into dist/index.html after build (scripts/inline-critical-css.mjs); source styles and lazy route styles stay unchanged. This removes a blocking stylesheet request.
+
+Дополнение QA: ранний фон первого экрана находится в index.html (#puls-hero-stage), скрывается на внутренних маршрутах и подстраивается Home через ResizeObserver. Основная страница загружается сразу, внутренние маршруты разделены lazy/Suspense. Inter/Unbounded core содержат нужные русские/латинские символы и вариативные веса 400–700 / 500–800: 46 564 + 62 264 байт вместо четырёх запросов общим объёмом 192 888 байт. Исходные файлы сохранены.

@@ -15,9 +15,13 @@
     <meta property="og:image" content="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&h=630&q=70" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preload" href="/img/hero-640.avif" as="image" type="image/avif" imagesrcset="/img/hero-640.avif 640w, /img/hero-1024.avif 1024w, /img/hero-1600.avif 1600w, /img/hero-2400.avif 2400w" imagesizes="100vw" fetchpriority="high" />
-    <link rel="preload" href="/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-core.woff2" as="font" type="font/woff2" crossorigin />
+    <style>#root{position:relative;z-index:1}#puls-hero-stage{position:absolute;top:65px;left:0;right:0;height:100svh;z-index:0;overflow:hidden;pointer-events:none}#puls-hero-stage img{width:100%;height:100%;object-fit:cover}</style>
+    <link rel="preload" href="/fonts/unbounded-core.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
+    <div id="puls-hero-stage"><picture><source type="image/avif" srcset="/puls/img/hero-640.avif 640w, /puls/img/hero-1024.avif 1024w, /puls/img/hero-1600.avif 1600w, /puls/img/hero-2400.avif 2400w" sizes="100vw"><img src="/puls/img/hero-1600.webp" srcset="/puls/img/hero-640.webp 640w, /puls/img/hero-1024.webp 1024w, /puls/img/hero-1600.webp 1600w, /puls/img/hero-2400.webp 2400w" sizes="100vw" alt="" width="1600" height="1000" fetchpriority="high"></picture></div>
+    <script>if(location.pathname.replace(/\/$/, '')!=='/puls')document.getElementById('puls-hero-stage').hidden=true</script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
