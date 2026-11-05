@@ -113,12 +113,11 @@
   .mem { padding: 30px 28px; }
 }
 
-/* десктоп: две колонки с общими рядами — карточки в ряду одной высоты, история на всю ширину, без дыр */
+/* десктоп: две независимые колонки-стека, карточки по высоте содержимого; история на всю ширину */
 @media (min-width: 1024px) {
-  .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); grid-template-areas: "mem wl" "bk st" "hi hi" "reset reset"; gap: 20px; align-items: stretch; }
-  .oMem { grid-area: mem; } .oWl { grid-area: wl; } .oBk { grid-area: bk; } .oSt { grid-area: st; } .oHi { grid-area: hi; }
-  .oMem > *, .oWl > *, .oBk > *, .oSt > *, .oHi > * { height: 100%; box-sizing: border-box; }
-  .reset { grid-area: reset; }
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 20px; align-items: start; }
+  .main, .side { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .oHi, .reset { grid-column: 1 / -1; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .wl li { grid-template-columns: 48px minmax(0, 1fr); }
   .wlActions { grid-column: 1 / -1; margin-top: 8px; justify-content: flex-start; }

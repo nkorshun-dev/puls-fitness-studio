@@ -5,7 +5,7 @@
 .hero h1 em { font-style: normal; color: var(--accent); }
 .hero .lead { color: #d3d4d8; margin-bottom: 28px; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; grid-auto-rows: minmax(80px, auto); min-height: 176px; }
 .stats b { display: block; font-family: var(--font-head); font-size: clamp(1.8rem, 6vw, 2.8rem); color: var(--accent); line-height: 1; }
 .stats span { color: #c7c8cc; font-size: 0.9rem; }
 .today { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); }
@@ -18,5 +18,5 @@
 .hall p { margin: 0; font-size: 0.88rem; color: var(--muted); }
 @media (min-width: 768px) {
   .hero { padding-block: 120px 96px; }
-  .stats { grid-template-columns: repeat(4, 1fr); }
+  .stats { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(92px, auto); min-height: 92px; }
 }

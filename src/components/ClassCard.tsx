@@ -5,7 +5,7 @@ import { trainerBySlug } from '../data/trainers'
 import { useAccount } from '../context/account-context'
 import { classView } from '../lib/class-view'
 import { formatTime } from '../lib/dates'
-import { spotsAria, spotsText } from '../lib/format'
+import { spotsText } from '../lib/format'
 import type { ClassItem } from '../lib/types'
 import { Badge } from './Badge'
 import s from './ClassCard.module.css'
@@ -24,16 +24,12 @@ export function ClassCard({ cls, onOpen, compact }: Props) {
   const time = formatTime(cls.start)
   const name = dir?.name ?? 'Занятие'
   const few = v.left > 0 && v.left <= 3
-  const aria =
-    [name, time, trainer?.name, v.status === 'open' || v.status === 'closed' ? spotsAria(v.left) : '', v.label, cls.cancelReason ?? '']
-      .filter(Boolean).join(', ')
 
   return (
     <button
       type="button"
       className={`${s.card} ${s[v.status]} ${compact ? s.compact : ''}`}
       style={{ '--dir': dir?.color } as React.CSSProperties}
-      aria-label={aria}
       onClick={() => onOpen(cls)}
     >
       <span className={s.time}>{time}</span>

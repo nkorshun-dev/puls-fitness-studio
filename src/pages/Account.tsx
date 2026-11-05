@@ -297,8 +297,8 @@ export default function Account() {
           <div className={s.side}>
             <div className={s.oSt}>{statsPanel}</div>
             <div className={s.oWl}>{waitlist}</div>
-            <div className={s.oHi}>{history}</div>
           </div>
+          <div className={s.oHi}>{history}</div>
           <div className={s.reset}>
             {confirmReset ? (
               <>

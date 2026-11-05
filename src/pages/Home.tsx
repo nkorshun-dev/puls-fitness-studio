@@ -38,6 +38,10 @@ const jsonLd = {
   ],
 }
 
+// фото hero локально (public/img), тот же набор предзагружается в index.html
+const heroBase = `${import.meta.env.BASE_URL}img/hero-`
+const heroSet = (ext: string) => [640, 1024, 1600, 2400].map((w) => `${heroBase}${w}.${ext} ${w}w`).join(', ')
+
 export default function Home() {
   usePageMeta('', 'Студия «Пульс» в Минске: пилатес, йога, TRX, сайкл, зумба. Расписание на 3 недели, запись онлайн, пробное занятие за 9 BYN.')
   const { now } = useAccount()
@@ -58,7 +62,10 @@ export default function Home() {
   return (
     <>
       <section className={`section dark ${s.hero}`}>
-        <img draggable="false" className={s.bg} src={studio.heroPhoto} alt="" width={1600} height={1000} fetchPriority="high" />
+        <picture>
+          <source type="image/avif" srcSet={heroSet('avif')} sizes="100vw" />
+          <img draggable="false" className={s.bg} src={`${heroBase}1600.webp`} srcSet={heroSet('webp')} sizes="100vw" alt="" width={1600} height={1000} fetchPriority="high" />
+        </picture>
         <div className="container">
           <p className="eyebrow">Фитнес-студия в центре Минска</p>
           <h1>Групповые тренировки в Минске — <em>от 7 утра до 22 вечера</em></h1>
