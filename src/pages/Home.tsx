@@ -188,8 +188,17 @@ export default function Home() {
           </div>
           <div>
             <p><strong>Как добраться</strong></p>
-            <p>5 минут пешком от станции метро «Пушкинская». Парковка во дворе, 25 мест, бесплатно для клиентов.</p>
+            <p>{studio.city}, {studio.address}</p>
+            <p>15 минут пешком от станции метро «Немига». Автобусы и троллейбусы до остановки «Пр-т Победителей».</p>
+            <p>Парковка во дворе, 25 мест, бесплатно для клиентов.</p>
           </div>
+        </div>
+        <div className={`container ${p.mapBox}`}>
+          <iframe
+            title="Карта: студия «Пульс», Минск, пр-т Победителей, 84"
+            loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=27.5220%2C53.9135%2C27.5420%2C53.9235&layer=mapnik&marker=53.9188%2C27.5318"
+          />
         </div>
       </section>
 
